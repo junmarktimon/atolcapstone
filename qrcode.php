@@ -32,7 +32,7 @@
 
 <script>
 
-var text1 = '<?php echo json_encode("Sabak ka diri45645", JSON_HEX_TAG); ?>';
+var text1 = '<?php echo json_encode("Sabak ka diri45645wsedwsd", JSON_HEX_TAG); ?>';
 var qrcode = new QRCode("qrcode1", {
     text: text1,
     width: 200,
