@@ -32,9 +32,9 @@
 
 <script>
 
-
+var text1 = '<?php echo json_encode("Sabak ka diri45645", JSON_HEX_TAG); ?>';
 var qrcode = new QRCode("qrcode1", {
-    text: "iloveyou",
+    text: text1,
     width: 200,
     height: 200,
     correctLevel : QRCode.CorrectLevel.H
@@ -44,7 +44,7 @@ var qrcode = new QRCode("qrcode1", {
 
     // var qrcode = new QRCode("qrcode1");
 
-    // var data = <?php echo json_encode("Sabak ka diri", JSON_HEX_TAG); ?>;
+    // var data = <?php //echo json_encode("Sabak ka diri", JSON_HEX_TAG); ?>;
     // qrcode.makeCode(data);
 
     // document.getElementById("qrcode1").src = qrcode.makeCode(data);
