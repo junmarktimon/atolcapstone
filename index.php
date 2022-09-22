@@ -24,6 +24,8 @@
 
 <body class="">
 
+<img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=http%3A%2F%2Fwww.google.com%2F&choe=UTF-8" title="junmarktimon" />
+
     <div class="container-fluid">
 
         <div class="mx-auto mt-5" style="width: 300px;">
