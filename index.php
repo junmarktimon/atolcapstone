@@ -1,67 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
+<?php 
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    session_start();
 
-    <title>SB Admin 2 - Login</title>
+    include 'include/header.php';
 
-    <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+?>
 
-    <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
-</head>
-
-<body class="">
-
-<img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=http%3A%2F%2Fwww.google.com%2F&choe=UTF-8" title="junmarktimon" />
 
     <div class="container-fluid">
 
         <div class="mx-auto mt-5" style="width: 300px;">
 
-            <form>
+            <form action="process.php" method="POST">
+                
+                <?php
+
+                    if(isset($_SESSION['status']) && $_SESSION['status'] !='') {
+                        echo '<br><div class="alert alert-danger" role="alert" id="message"> <i class="fas fa-times "></i> '.$_SESSION['status'].' </i></div>';
+                        unset($_SESSION['status']);
+                    }
+                ?>
+
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    <label for="exampleInputEmail1">Username</label>
+                    <input type="text" class="form-control" name="username" id="exampleInputEmail1" aria-describedby="emailHelp">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <input type="password" class="form-control" name="password" id="exampleInputPassword1">
                 </div>
                 <div class="form-group form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">Remember me</label>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" name="btn_login" >Submit</button>
             </form>
 
         </div>
 
     </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<?php
 
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    include 'include/footer.php';
 
-</body>
+?>
 
-</html>
-
+<script>
+    // error meesage fadeOut
+    $('document').ready(function(){ 
+    $("#message").fadeIn(1000).fadeOut(5000); 
+    })
+</script>
