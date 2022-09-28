@@ -2,13 +2,13 @@
 
 session_start();
 
-include('include/db_config.php');
+include('admin/include/db_config.php');
 
 if($dbconfig){
 
 }else{
 
-    header("Location: include/db_config.php");
+    header("Location: admin/include/db_config.php");
 
 }
 

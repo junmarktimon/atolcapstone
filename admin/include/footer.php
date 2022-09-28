@@ -35,8 +35,16 @@
                 </div>
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    
+                    <form action="../logout.php" method="post">
+
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+
+                                <input type="hidden" name="id" value="<?php echo $_SESSION['id']; ?>">
+                                <input type="hidden" name="role" value="<?php echo $_SESSION['role']; ?>">
+                        <button type="submit" name="logout_btn" class="btn btn-primary">Logout</button>
+
+                    </form>
                 </div>
             </div>
         </div>

@@ -9,7 +9,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3"> <?php echo $_SESSION['username']; ?> </div>
     </a>
 
     <!-- Divider -->
@@ -17,18 +17,32 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="index.php">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
+    </li>
+
+    <!-- Nav Item - Students -->
+    <li class="nav-item">
+        <a class="nav-link" href="students.php">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Students</span></a>
+    </li>
+
+    <!-- Nav Item - Teachers -->
+    <li class="nav-item">
+        <a class="nav-link" href="teachers.php">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Teachers</span></a>
     </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider">
 
     <!-- Heading -->
-    <div class="sidebar-heading">
+    <!-- <div class="sidebar-heading">
         Interface
-    </div>
+    </div> -->
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
