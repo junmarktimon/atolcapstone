@@ -158,7 +158,7 @@
     </div>
 
 
-
+    <!-- modal for deleting student data -->
     <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -182,6 +182,71 @@
         </div>
     </div>
 
+    <!-- modal for displaying QR Code and student data -->
+    <div class="modal fade" id="exampleModal0" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Student QR CODE</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="qrCode">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Download</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+     <!-- Modal -->
+     <div class="modal fade" id="exampleModal_0" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Teacher</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <form action="process.php" method="POST">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">School ID</label>
+                            <input type="text" class="form-control" id="input_schoolID1" name="school_id" placeholder="School ID">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">First Name</label>
+                            <input type="text" class="form-control" id="input_fname1" name="fname" placeholder="First name">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Middle Name</label>
+                            <input type="text" class="form-control" id="input_mname1" name="mname" placeholder="Middle name">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Last Name</label>
+                            <input type="text" class="form-control" id="input_lname1" name="lname" placeholder="Last name">
+                        </div>
+                    
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" onclick="clearText1()">Clear</button>
+                            <button type="submit" class="btn btn-primary" name="addTeacher">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -199,6 +264,8 @@
 
 
     <script>
+
+
         $(document).ready(function () {
             $('#dataTable1').DataTable();
         });
@@ -210,6 +277,13 @@
             document.getElementById("input_mname").value = '';
             document.getElementById("input_lname").value = '';
             document.getElementById("input_select").value = '';
+        }
+
+        function clearText1(){
+            document.getElementById("input_schoolID1").value = '';
+            document.getElementById("input_fname1").value = '';
+            document.getElementById("input_mname1").value = '';
+            document.getElementById("input_lname1").value = '';
         }
 
 
@@ -247,6 +321,26 @@
 
             //$('#exampleModal1').modal('toggle');
         });
+
+        //get user id for specific update using jquery and by calling input or button id
+        //viewing qr code
+        $(document).on('click', '#qrCode_student', function(){
+                            
+            var id = $(this).data('id1');
+
+            // var text1 = '<?php echo json_encode( "sabak", JSON_HEX_TAG); ?>';
+            var text1 = id;
+            var qrcode = new QRCode("qrCode", {
+                text: text1,
+                width: 200,
+                height: 200,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+
+
+        });
+
+       
 
     </script>
 

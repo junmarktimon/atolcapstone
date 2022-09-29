@@ -71,6 +71,10 @@ if (isset($_POST['addStudent'])){
                     // $query5 = "INSERT INTO tbl_history (user_role, id, description) VALUES ('1','$idrole','$his_data')";
                     // $query_run5 = mysqli_query($connection,$query5);
 
+                    $lname1 = md5($lname);
+                    $query1 = "INSERT INTO tbl_user (username, password, role, gate) VALUES ('$school_id','$lname1','3', '0')";
+                    $query_run1 = mysqli_query($connection,$query1);
+
                     $_SESSION['success'] = "Student Added Successfully!";
                     header('Location: students.php');
                 }else{
@@ -100,10 +104,6 @@ if (isset($_POST['EditStudent'])){
 
         if (!empty($school_id) || !empty($fname) || !empty($lname) || !empty($year_level)){
 
-
-                $query = "INSERT INTO tbl_student (school_id,fname,mname,lname,year_level) 
-                            VALUES 
-                        ('$school_id','$fname','$mname','$lname','$year_level')";
                 $query = "UPDATE tbl_student SET school_id='$school_id', fname='$fname',mname='$mname',lname='$lname',year_level='$year_level'  WHERE id='$id' LIMIT 1";
 
                 $query_run = mysqli_query($connection, $query);

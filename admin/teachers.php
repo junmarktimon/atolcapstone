@@ -16,7 +16,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Student</li>
+                <li class="breadcrumb-item active" aria-current="page">Teacher</li>
             </ol>   
         </nav>
 
@@ -35,8 +35,8 @@
                 ?>
 
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary mb-3 float-left" data-toggle="modal" data-target="#exampleModal">
-                    Add Student
+                <button type="button" class="btn btn-primary mb-3 float-left" data-toggle="modal" data-target="#exampleModal_0">
+                    Add Teacher
                 </button>
 
             <div class="table-responsive">
@@ -47,7 +47,6 @@
                             <th>ID</th>
                             <th>Name</th>
                             <th>School ID</th>
-                            <th>Year Level</th>
                             <th>View</th>
                             <th>Edit</th>
                             <th>Delete</th>
@@ -57,7 +56,7 @@
                     <tbody>
                 
                         <?php
-                            $query = "SELECT * FROM tbl_student";
+                            $query = "SELECT * FROM tbl_teacher";
                             $query_run = mysqli_query($connection,$query);
 
                         ?>
@@ -81,9 +80,6 @@
                                         </td>
                                         <td>
                                             <?php echo htmlspecialchars($row['school_id']); ?>
-                                        </td>
-                                        <td>
-                                            <?php echo htmlspecialchars($row['year_level']); ?>
                                         </td>
 
                                         <td width="2%">
