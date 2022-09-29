@@ -3,7 +3,7 @@
 
     session_start();
 
-    include 'admin/include/header.php';
+    include 'header.php';
 
 ?>
 
@@ -44,7 +44,7 @@
 
 <?php
 
-    include 'admin/include/footer.php';
+    include 'footer.php';
 
 ?>
 

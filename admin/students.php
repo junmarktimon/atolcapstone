@@ -15,11 +15,17 @@
 
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Student</li>
-            </ol>
+            </ol>   
         </nav>
 
         <div class="card-body">
+
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary mb-3 float-left" data-toggle="modal" data-target="#exampleModal">
+                    Add Student
+                </button>
 
             <div class="table-responsive">
 

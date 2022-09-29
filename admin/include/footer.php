@@ -23,7 +23,7 @@
     </a>
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade " id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -50,6 +50,60 @@
         </div>
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Student</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <form>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">School ID</label>
+                        <input type="text" class="form-control" id="input_schoolID" name="school_id" placeholder="School ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">First Name</label>
+                        <input type="text" class="form-control" id="input_fname" name="fname" placeholder="First name">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Middle Name</label>
+                        <input type="text" class="form-control" id="input_mname" name="mname" placeholder="Middle name">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Last Name</label>
+                        <input type="text" class="form-control" id="input_lname" name="lname" placeholder="Last name">
+                    </div>
+               
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Year Level</label>
+                        <select class="form-control" id="input_select" name="year_level">
+                            <option>-- select -- </option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                        </select>
+                    </div>
+                
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" onclick="clearText()">Clear</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -59,6 +113,31 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
+
+     <!-- Page level plugins -->
+     <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            $('#dataTable1').DataTable();
+        });
+
+
+        function clearText(){
+            document.getElementById("input_schoolID").value = '';
+            document.getElementById("input_fname").value = '';
+            document.getElementById("input_mname").value = '';
+            document.getElementById("input_lname").value = '';
+            document.getElementById("input_select").value = '';
+        }
+
+    </script>
+
+
+        
+
 
 </body>
 
