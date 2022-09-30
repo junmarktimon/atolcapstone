@@ -92,6 +92,11 @@
                             <option value="6">6</option>
                         </select>
                     </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Contact Number</label>
+                        <input type="text" class="form-control" id="input_contact" name="contact" placeholder="Contact Number">
+                    </div>
                 
                     </div>
                     <div class="modal-footer">
@@ -146,6 +151,11 @@
                             <option value="6">6</option>
                         </select>
                     </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Contact Number</label>
+                        <input type="text" class="form-control" id="editInput_contact" name="contact" placeholder="Contact Number">
+                    </div>
                 
                     </div>
                     <div class="modal-footer">
@@ -193,7 +203,7 @@
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body1">
                     <div id="qrCode">
 
                     </div>
@@ -277,6 +287,7 @@
             document.getElementById("input_mname").value = '';
             document.getElementById("input_lname").value = '';
             document.getElementById("input_select").value = '';
+            document.getElementById("input_contact").value = '';
         }
 
         function clearText1(){
@@ -297,6 +308,7 @@
             var mname = $(this).data('id4');
             var lname = $(this).data('id5');
             var year_level = $(this).data('id6');
+            var contact = $(this).data('id7');
 
 
             document.getElementById("editInput_id").value = id;
@@ -305,6 +317,7 @@
             document.getElementById("editInput_mname").value = mname;
             document.getElementById("editInput_lname").value = lname;
             document.getElementById("editInput_select").value = year_level;
+            document.getElementById("editInput_contact").value = contact;
 
             //$('#exampleModal1').modal('toggle');
         });
@@ -322,23 +335,59 @@
             //$('#exampleModal1').modal('toggle');
         });
 
-        //get user id for specific update using jquery and by calling input or button id
-        //viewing qr code
-        $(document).on('click', '#qrCode_student', function(){
-                            
-            var id = $(this).data('id1');
 
-            // var text1 = '<?php echo json_encode( "sabak", JSON_HEX_TAG); ?>';
-            var text1 = id;
-            var qrcode = new QRCode("qrCode", {
-                text: text1,
-                width: 200,
-                height: 200,
-                correctLevel : QRCode.CorrectLevel.H
+            // //get user id for specific update using jquery and by calling input or button id
+            // //viewing qr code
+            // $(document).on('click', '#qrCode_student', function(){
+                                
+            //     var id = $(this).data('id1');
+
+            //     // var text1 = '<?php echo json_encode( "sabak", JSON_HEX_TAG); ?>';
+            //     var text1 = id;
+            //     var qrcode = new QRCode("qrCode", {
+            //         text: text1,
+            //         width: 200,
+            //         height: 200,
+            //         correctLevel : QRCode.CorrectLevel.H
+            //     });
+
+                
+            // });
+
+            //get user id for specific update using jquery and by calling input or button id
+            //viewing qr code
+            $(document).on('click', '#qrCode_student', function(){
+                                
+                var id = $(this).data('id1');
+
+                // var text1 = '<?php echo json_encode( "sabak", JSON_HEX_TAG); ?>';
+                var text1 = id;
+                var qrcode = new QRCode("qrCode", {
+                    text: text1,
+                    width: 200,
+                    height: 200,
+                    correctLevel : QRCode.CorrectLevel.H
+                });
+
+                
             });
 
+           
+                                
 
-        });
+                    
+
+
+
+
+        
+
+            // //reset entire body of modal for QR Code
+            // $(".modal").on("hidden.bs.modal", function(){
+            //     $(".modal-body1").html("");
+            // });
+
+
 
        
 

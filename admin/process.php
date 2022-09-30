@@ -45,8 +45,9 @@ if (isset($_POST['addStudent'])){
     $mname = mysqli_real_escape_string($connection, check_input(ucwords($_POST['mname'])));
     $lname = mysqli_real_escape_string($connection, check_input(ucwords($_POST['lname'])));
     $year_level = mysqli_real_escape_string($connection, check_input($_POST['year_level']));
+    $contact = mysqli_real_escape_string($connection, check_input($_POST['contact']));
 
-        if (!empty($school_id) || !empty($fname) || !empty($lname) || !empty($year_level)){
+        if (!empty($school_id) || !empty($fname) || !empty($lname) || !empty($year_level) || !empty($contact)){
 
             $dupsql = "SELECT * FROM tbl_student WHERE (school_id = '$school_id' || (fname = '$fname' && mname = '$mname'))";
             $duprow = mysqli_query($connection, $dupsql);
@@ -58,9 +59,9 @@ if (isset($_POST['addStudent'])){
             }else{
 
 
-                $query = "INSERT INTO tbl_student (school_id,fname,mname,lname,year_level) 
+                $query = "INSERT INTO tbl_student (school_id,fname,mname,lname,year_level, contact_no) 
                             VALUES 
-                        ('$school_id','$fname','$mname','$lname','$year_level')";
+                        ('$school_id','$fname','$mname','$lname','$year_level', '$contact')";
 
                 $query_run = mysqli_query($connection, $query);
 
@@ -101,10 +102,11 @@ if (isset($_POST['EditStudent'])){
     $mname = mysqli_real_escape_string($connection, check_input(ucwords($_POST['mname'])));
     $lname = mysqli_real_escape_string($connection, check_input(ucwords($_POST['lname'])));
     $year_level = mysqli_real_escape_string($connection, check_input($_POST['year_level']));
+    $contact = mysqli_real_escape_string($connection, check_input($_POST['contact']));
 
-        if (!empty($school_id) || !empty($fname) || !empty($lname) || !empty($year_level)){
+        if (!empty($school_id) || !empty($fname) || !empty($lname) || !empty($year_level) || !empty($contact)){
 
-                $query = "UPDATE tbl_student SET school_id='$school_id', fname='$fname',mname='$mname',lname='$lname',year_level='$year_level'  WHERE id='$id' LIMIT 1";
+                $query = "UPDATE tbl_student SET school_id='$school_id', fname='$fname',mname='$mname',lname='$lname',year_level='$year_level', contact_no='$contact'  WHERE id='$id' LIMIT 1";
 
                 $query_run = mysqli_query($connection, $query);
 
