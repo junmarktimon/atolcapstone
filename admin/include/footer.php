@@ -372,6 +372,13 @@
                 
             });
 
+
+            (function(){
+                $("#exampleModal0").on("hidden.bs.modal", function(){
+                    $(this).removeData();
+                });
+            });
+
            
                                 
 
