@@ -108,7 +108,7 @@
         </div>
     </div>
 
-
+    <!-- modal for updating student data -->
     <!-- Modal -->
     <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -124,7 +124,7 @@
                 <form action="process.php" method="POST">
                     <div class="form-group">
                         <label for="exampleInputEmail1">School ID</label>
-                        <input type="text" class="form-control" id="editInput_schoolID" name="school_id" placeholder="School ID">
+                        <input type="text" class="form-control" id="editInput_schoolID" name="school_id" disabled>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">First Name</label>
@@ -184,6 +184,7 @@
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                     <form action ="process.php" method="post"> 
                         <input  type="hidden" name="delete_id" id="deleteInput_id">
+                        <input  type="hidden" name="delete_school_id" id="deleteInput_school_id">
                         <button type="submit" name="delete_btn" class="btn btn-danger">Delete</button>
 
                     </form>
@@ -192,31 +193,8 @@
         </div>
     </div>
 
-    <!-- modal for displaying QR Code and student data -->
-    <div class="modal fade" id="exampleModal0" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Student QR CODE</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body1">
-                    <div id="qrCode">
 
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Download</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
+        <!-- modal for adding teacher -->
      <!-- Modal -->
      <div class="modal fade" id="exampleModal_0" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -276,11 +254,13 @@
     <script>
 
 
+        //data tables
         $(document).ready(function () {
             $('#dataTable1').DataTable();
         });
 
 
+        //clear all text fields of adding student
         function clearText(){
             document.getElementById("input_schoolID").value = '';
             document.getElementById("input_fname").value = '';
@@ -290,6 +270,7 @@
             document.getElementById("input_contact").value = '';
         }
 
+        //clear all text fields of adding teacher
         function clearText1(){
             document.getElementById("input_schoolID1").value = '';
             document.getElementById("input_fname1").value = '';
@@ -319,7 +300,6 @@
             document.getElementById("editInput_select").value = year_level;
             document.getElementById("editInput_contact").value = contact;
 
-            //$('#exampleModal1').modal('toggle');
         });
 
 
@@ -327,73 +307,32 @@
         //delete student
         $(document).on('click', '#delete_student', function(){
                             
-            var id = $(this).data('id1');
+            var delete_id = $(this).data('id1');
+            var delete_school_id = $(this).data('id2');
 
 
-            document.getElementById("deleteInput_id").value = id;
+            document.getElementById("deleteInput_id").value = delete_id;
+            document.getElementById("deleteInput_school_id").value = delete_school_id;
 
-            //$('#exampleModal1').modal('toggle');
+
         });
+   
 
-
-            // //get user id for specific update using jquery and by calling input or button id
-            // //viewing qr code
-            // $(document).on('click', '#qrCode_student', function(){
-                                
-            //     var id = $(this).data('id1');
-
-            //     // var text1 = '<?php echo json_encode( "sabak", JSON_HEX_TAG); ?>';
-            //     var text1 = id;
-            //     var qrcode = new QRCode("qrCode", {
-            //         text: text1,
-            //         width: 200,
-            //         height: 200,
-            //         correctLevel : QRCode.CorrectLevel.H
-            //     });
+            //auto generate qr code when view student page load
+            $(window).on('load', function() {
 
                 
-            // });
+                var student_nameQR = document.getElementById("student_complete_name").value;
 
-            //get user id for specific update using jquery and by calling input or button id
-            //viewing qr code
-            $(document).on('click', '#qrCode_student', function(){
-                                
-                var id = $(this).data('id1');
-
-                // var text1 = '<?php echo json_encode( "sabak", JSON_HEX_TAG); ?>';
-                var text1 = id;
-                var qrcode = new QRCode("qrCode", {
-                    text: text1,
-                    width: 200,
-                    height: 200,
-                    correctLevel : QRCode.CorrectLevel.H
-                });
+                    var qrcode = new QRCode("qrcode", {
+                        text: student_nameQR,
+                        width: 200,
+                        height: 200,
+                        correctLevel : QRCode.CorrectLevel.H
+                    });
 
                 
             });
-
-
-            (function(){
-                $("#exampleModal0").on("hidden.bs.modal", function(){
-                    $(this).removeData();
-                });
-            });
-
-           
-                                
-
-                    
-
-
-
-
-        
-
-            // //reset entire body of modal for QR Code
-            // $(".modal").on("hidden.bs.modal", function(){
-            //     $(".modal-body1").html("");
-            // });
-
 
 
        

@@ -97,16 +97,15 @@ if (isset($_POST['addStudent'])){
 if (isset($_POST['EditStudent'])){
 
     $id = mysqli_real_escape_string($connection, check_input($_POST['student_id']));
-    $school_id = mysqli_real_escape_string($connection, check_input($_POST['school_id']));
     $fname = mysqli_real_escape_string($connection, check_input(ucwords($_POST['fname'])));
     $mname = mysqli_real_escape_string($connection, check_input(ucwords($_POST['mname'])));
     $lname = mysqli_real_escape_string($connection, check_input(ucwords($_POST['lname'])));
     $year_level = mysqli_real_escape_string($connection, check_input($_POST['year_level']));
     $contact = mysqli_real_escape_string($connection, check_input($_POST['contact']));
 
-        if (!empty($school_id) || !empty($fname) || !empty($lname) || !empty($year_level) || !empty($contact)){
+        if (!empty($fname) || !empty($lname) || !empty($year_level) || !empty($contact)){
 
-                $query = "UPDATE tbl_student SET school_id='$school_id', fname='$fname',mname='$mname',lname='$lname',year_level='$year_level', contact_no='$contact'  WHERE id='$id' LIMIT 1";
+                $query = "UPDATE tbl_student SET fname='$fname',mname='$mname',lname='$lname',year_level='$year_level', contact_no='$contact'  WHERE id='$id' LIMIT 1";
 
                 $query_run = mysqli_query($connection, $query);
 
@@ -138,6 +137,7 @@ if (isset($_POST['EditStudent'])){
 if(isset($_POST['delete_btn'])){
 
     $delete_id = $_POST['delete_id'];
+    $delete_school_id = $_POST['delete_school_id'];
 
     $query = "DELETE FROM tbl_student WHERE id ='$delete_id' LIMIT 1";
     $query_run = mysqli_query($connection,$query);
@@ -148,6 +148,9 @@ if(isset($_POST['delete_btn'])){
         // $his_data = "Admin Deleted Student Data (School ID: " . $school_id . ") Successfully!";
         // $query5 = "INSERT INTO tbl_history (user_role, id, description) VALUES ('1','$idrole','$his_data')";
         // $query_run5 = mysqli_query($connection,$query5);
+
+        $query1 = "DELETE FROM tbl_user WHERE username ='$delete_school_id' LIMIT 1";
+        $query_run1 = mysqli_query($connection,$query1);
         
         $_SESSION['success'] = "Student Deleted Successfully!";
         header("Location: students.php");

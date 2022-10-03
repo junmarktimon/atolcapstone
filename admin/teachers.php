@@ -83,20 +83,20 @@
                                         </td>
 
                                         <td width="2%">
-                                            <button type="button" class="btn btn-success btn-circle" id="qrCode_student" data-toggle="modal" data-target="#exampleModal0" data-id1="<?php echo htmlspecialchars($row['id']); ?>" data-id2="<?php echo htmlspecialchars($row['school_id']); ?>" data-id3="<?php echo htmlspecialchars($row['fname']); ?>" data-id4="<?php echo htmlspecialchars($row['mname']); ?>" data-id5="<?php echo htmlspecialchars($row['lname']); ?>" data-id6="<?php echo htmlspecialchars($row['year_level']); ?>">
+                                            <button type="button" class="btn btn-success btn-circle" id="view_teacher" data-toggle="modal" data-target="#exampleModal_0" data-id1="<?php echo htmlspecialchars($row['id']); ?>" data-id2="<?php echo htmlspecialchars($row['school_id']); ?>" data-id3="<?php echo htmlspecialchars($row['fname']); ?>" data-id4="<?php echo htmlspecialchars($row['mname']); ?>" data-id5="<?php echo htmlspecialchars($row['lname']); ?>" >
                                                 <i class='fas fa-eye'></i>
                                             </button>
                                         </td>
 
                                         <td width="2%">
-                                            <button type="button" class="btn btn-success btn-circle" id="edit_student" data-toggle="modal" data-target="#exampleModal1" data-id1="<?php echo htmlspecialchars($row['id']); ?>" data-id2="<?php echo htmlspecialchars($row['school_id']); ?>" data-id3="<?php echo htmlspecialchars($row['fname']); ?>" data-id4="<?php echo htmlspecialchars($row['mname']); ?>" data-id5="<?php echo htmlspecialchars($row['lname']); ?>" data-id6="<?php echo htmlspecialchars($row['year_level']); ?>">
+                                            <button type="button" class="btn btn-success btn-circle" id="edit_teacher" data-toggle="modal" data-target="#exampleModal_1" data-id1="<?php echo htmlspecialchars($row['id']); ?>" data-id2="<?php echo htmlspecialchars($row['school_id']); ?>" data-id3="<?php echo htmlspecialchars($row['fname']); ?>" data-id4="<?php echo htmlspecialchars($row['mname']); ?>" data-id5="<?php echo htmlspecialchars($row['lname']); ?>" >
                                                 <i class="fas fa-user-edit"></i>
                                             </button>
                                         </td>
 
                                         <td width="2%">
-                                            <button type="button" class="btn btn-danger btn-circle" id="delete_student" data-toggle="modal" data-target="#exampleModal2" data-id1="<?php echo htmlspecialchars($row['id']); ?>" >
-                                                <i class="fas fa-user-edit"></i>
+                                            <button type="button" class="btn btn-danger btn-circle" id="delete_teacher" data-toggle="modal" data-target="#exampleModal_2" data-id1="<?php echo htmlspecialchars($row['id']); ?>" data-id2="<?php echo htmlspecialchars($row['school_id']); ?>" >
+                                                <i class="fa fa-user-times"></i>
                                             </button>  
                                         </td>
 

@@ -92,9 +92,15 @@
                                         </td>
 
                                         <td width="2%">
-                                            <button type="button" class="btn btn-success btn-circle" id="qrCode_student" data-toggle="modal" data-target="#exampleModal0" data-id1="<?php echo htmlspecialchars($row['id']); ?>" data-id2="<?php echo htmlspecialchars($row['school_id']); ?>" data-id3="<?php echo htmlspecialchars($row['fname']); ?>" data-id4="<?php echo htmlspecialchars($row['mname']); ?>" data-id5="<?php echo htmlspecialchars($row['lname']); ?>" data-id6="<?php echo htmlspecialchars($row['year_level']); ?>">
-                                                <i class='fas fa-eye'></i>
-                                            </button>
+                                            <form action="view_student.php" method="post" target="_blank">
+                                                    <input type="hidden" name="view_student_id" value="<?php echo htmlspecialchars($row['id']); ?>">
+                                                    <input type="hidden" name="view_student_school_id" value="<?php echo htmlspecialchars($row['school_id']); ?>">
+                                                    <input type="hidden" name="view_student_fname" value="<?php echo htmlspecialchars($row['fname']); ?>">
+                                                    <input type="hidden" name="view_student_mname" value="<?php echo htmlspecialchars($row['mname']); ?>">
+                                                    <input type="hidden" name="view_student_lname" value="<?php echo htmlspecialchars($row['lname']); ?>">
+                                                    <input type="hidden" name="view_student_contact_no" value="<?php echo htmlspecialchars($row['contact_no']); ?>">
+                                                    <button  type="submit" name="btn_view_student" class="btn btn-info btn-circle"><i class="fas fa-id-card"></i></button>
+                                            </form>
                                         </td>
 
                                         <td width="2%">
@@ -104,8 +110,8 @@
                                         </td>
 
                                         <td width="2%">
-                                            <button type="button" class="btn btn-danger btn-circle" id="delete_student" data-toggle="modal" data-target="#exampleModal2" data-id1="<?php echo htmlspecialchars($row['id']); ?>" >
-                                                <i class="fas fa-user-edit"></i>
+                                            <button type="button" class="btn btn-danger btn-circle" id="delete_student" data-toggle="modal" data-target="#exampleModal2" data-id1="<?php echo htmlspecialchars($row['id']); ?>" data-id2="<?php echo htmlspecialchars($row['school_id']); ?>" >
+                                                <i class="fa fa-user-times"></i>
                                             </button>  
                                         </td>
 
