@@ -236,6 +236,76 @@
     </div>
 
 
+
+    <!-- modal for updating teacher data -->
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal_1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Update Teacher</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <form action="process.php" method="POST">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">School ID</label>
+                            <input type="text" class="form-control" id="editInput_teacher_schoolID" name="school_id" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">First Name</label>
+                            <input type="text" class="form-control" id="editInput_teacher_fname" name="fname" placeholder="First name">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Middle Name</label>
+                            <input type="text" class="form-control" id="editInput_teacher_mname" name="mname" placeholder="Middle name">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Last Name</label>
+                            <input type="text" class="form-control" id="editInput_teacher_lname" name="lname" placeholder="Last name">
+                        </div>
+                
+                        
+                        <div class="modal-footer">
+                            <input type="hidden" name="teacher_id" id="editInput_teacher_id">
+                            <button type="submit" class="btn btn-primary" name="EditTeacher">Edit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- modal for deleting teacher data -->
+    <div class="modal fade" id="exampleModal_2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Data</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Please confirm to Delete?</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <form action ="process.php" method="post"> 
+                        <input  type="hidden" name="delete_teacher_id" id="deleteInput_teacher_id">
+                        <input  type="hidden" name="delete_teacher_school_id" id="deleteInput_school_teacher_id">
+                        <button type="submit" name="delete_btn_teacher" class="btn btn-danger">Delete</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -280,7 +350,7 @@
 
 
         //get user id for specific update using jquery and by calling input or button id
-        //delete student
+        //update student
         $(document).on('click', '#edit_student', function(){
                             
             var id = $(this).data('id1');
@@ -332,6 +402,42 @@
                     });
 
                 
+            });
+
+
+
+            //get user id for specific update using jquery and by calling input or button id
+            //update teacher
+            $(document).on('click', '#edit_teacher', function(){
+                                
+                var id = $(this).data('id1');
+                var school_id = $(this).data('id2');
+                var fname = $(this).data('id3');
+                var mname = $(this).data('id4');
+                var lname = $(this).data('id5');
+
+
+                document.getElementById("editInput_teacher_id").value = id;
+                document.getElementById("editInput_teacher_schoolID").value = school_id;
+                document.getElementById("editInput_teacher_fname").value = fname;
+                document.getElementById("editInput_teacher_mname").value = mname;
+                document.getElementById("editInput_teacher_lname").value = lname;
+
+            });
+
+
+            //get user id for specific update using jquery and by calling input or button id
+            //delete teacher
+            $(document).on('click', '#delete_teacher', function(){
+                                
+                var delete_id = $(this).data('id1');
+                var delete_school_id = $(this).data('id2');
+
+
+                document.getElementById("deleteInput_teacher_id").value = delete_id;
+                document.getElementById("deleteInput_school_teacher_id").value = delete_school_id;
+
+
             });
 
 

@@ -47,7 +47,6 @@
                             <th>ID</th>
                             <th>Name</th>
                             <th>School ID</th>
-                            <th>View</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
@@ -80,12 +79,6 @@
                                         </td>
                                         <td>
                                             <?php echo htmlspecialchars($row['school_id']); ?>
-                                        </td>
-
-                                        <td width="2%">
-                                            <button type="button" class="btn btn-success btn-circle" id="view_teacher" data-toggle="modal" data-target="#exampleModal_0" data-id1="<?php echo htmlspecialchars($row['id']); ?>" data-id2="<?php echo htmlspecialchars($row['school_id']); ?>" data-id3="<?php echo htmlspecialchars($row['fname']); ?>" data-id4="<?php echo htmlspecialchars($row['mname']); ?>" data-id5="<?php echo htmlspecialchars($row['lname']); ?>" >
-                                                <i class='fas fa-eye'></i>
-                                            </button>
                                         </td>
 
                                         <td width="2%">

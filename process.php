@@ -76,7 +76,7 @@ if(isset($_POST['btn_login'])){
                             $_SESSION['username'] = $username_login;
                             $_SESSION['id'];
                             $_SESSION['role'];
-                            header("Location:staff");
+                            header("Location:teacher");
                             exit;
                         }elseif ($_SESSION["role"] == 3){
                             // $his_data = "User Login Successfully!";
@@ -87,7 +87,7 @@ if(isset($_POST['btn_login'])){
                             $_SESSION['id'];
                             $_SESSION['role'];
                             $_SESSION['gate'];
-                            header("Location:user");
+                            header("Location:student");
                             exit;
                         }
 
