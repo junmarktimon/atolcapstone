@@ -22,6 +22,9 @@
             <span>Dashboard</span></a>
     </li>
 
+     <!-- Divider -->
+     <hr class="sidebar-divider">
+
     <!-- Nav Item - Students -->
     <li class="nav-item">
         <a class="nav-link" href="students.php">
@@ -29,12 +32,18 @@
             <span>Students</span></a>
     </li>
 
+     <!-- Divider -->
+     <hr class="sidebar-divider">
+
     <!-- Nav Item - Teachers -->
     <li class="nav-item">
         <a class="nav-link" href="teachers.php">
             <i class="fas fa-fw fa-table"></i>
             <span>Teachers</span></a>
     </li>
+
+     <!-- Divider -->
+     <hr class="sidebar-divider">
 
     <!-- Nav Item - Teachers -->
     <li class="nav-item">
