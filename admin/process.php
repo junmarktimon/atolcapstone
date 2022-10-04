@@ -41,15 +41,15 @@ function insert_history($user_role, $id_role, $message){
 if (isset($_POST['addStudent'])){
 
     $school_id = mysqli_real_escape_string($connection, check_input($_POST['school_id']));
-    $fname = mysqli_real_escape_string($connection, check_input(ucwords($_POST['fname'])));
-    $mname = mysqli_real_escape_string($connection, check_input(ucwords($_POST['mname'])));
-    $lname = mysqli_real_escape_string($connection, check_input(ucwords($_POST['lname'])));
+    $fname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['fname'])));
+    $mname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['mname'])));
+    $lname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['lname'])));
     $year_level = mysqli_real_escape_string($connection, check_input($_POST['year_level']));
     $contact = mysqli_real_escape_string($connection, check_input($_POST['contact']));
 
         if (!empty($school_id) || !empty($fname) || !empty($lname) || !empty($year_level) || !empty($contact)){
 
-            $dupsql = "SELECT * FROM tbl_student WHERE (school_id = '$school_id' || (fname = '$fname' && mname = '$mname'))";
+            $dupsql = "SELECT * FROM tbl_student WHERE (school_id = '$school_id' || (fname = '$fname' && mname = '$mname' && lname = '$lname'))";
             $duprow = mysqli_query($connection, $dupsql);
 
             if (mysqli_num_rows($duprow) > 0){
@@ -97,9 +97,9 @@ if (isset($_POST['addStudent'])){
 if (isset($_POST['EditStudent'])){
 
     $id = mysqli_real_escape_string($connection, check_input($_POST['student_id']));
-    $fname = mysqli_real_escape_string($connection, check_input(ucwords($_POST['fname'])));
-    $mname = mysqli_real_escape_string($connection, check_input(ucwords($_POST['mname'])));
-    $lname = mysqli_real_escape_string($connection, check_input(ucwords($_POST['lname'])));
+    $fname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['fname'])));
+    $mname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['mname'])));
+    $lname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['lname'])));
     $year_level = mysqli_real_escape_string($connection, check_input($_POST['year_level']));
     $contact = mysqli_real_escape_string($connection, check_input($_POST['contact']));
 
@@ -149,7 +149,7 @@ if(isset($_POST['delete_btn'])){
         // $query5 = "INSERT INTO tbl_history (user_role, id, description) VALUES ('1','$idrole','$his_data')";
         // $query_run5 = mysqli_query($connection,$query5);
 
-        $query1 = "DELETE FROM tbl_user WHERE username ='$delete_school_id' LIMIT 1";
+        $query1 = "DELETE FROM tbl_user WHERE username ='$delete_school_id' && role ='3' LIMIT 1";
         $query_run1 = mysqli_query($connection,$query1);
         
         $_SESSION['success'] = "Student Deleted Successfully!";
@@ -170,13 +170,13 @@ if(isset($_POST['delete_btn'])){
 if (isset($_POST['addTeacher'])){
 
     $school_id = mysqli_real_escape_string($connection, check_input($_POST['school_id']));
-    $fname = mysqli_real_escape_string($connection, check_input(ucwords($_POST['fname'])));
-    $mname = mysqli_real_escape_string($connection, check_input(ucwords($_POST['mname'])));
-    $lname = mysqli_real_escape_string($connection, check_input(ucwords($_POST['lname'])));
+    $fname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['fname'])));
+    $mname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['mname'])));
+    $lname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['lname'])));
 
         if (!empty($school_id) || !empty($fname) || !empty($lname) ){
 
-            $dupsql = "SELECT * FROM tbl_teacher WHERE (school_id = '$school_id' || (fname = '$fname' && mname = '$mname'))";
+            $dupsql = "SELECT * FROM tbl_teacher WHERE (school_id = '$school_id' || (fname = '$fname' && mname = '$mname' && lname = '$lname'))";
             $duprow = mysqli_query($connection, $dupsql);
 
             if (mysqli_num_rows($duprow) > 0){
@@ -227,9 +227,9 @@ if (isset($_POST['addTeacher'])){
 if (isset($_POST['EditTeacher'])){
 
     $id = mysqli_real_escape_string($connection, check_input($_POST['teacher_id']));
-    $fname = mysqli_real_escape_string($connection, check_input(ucwords($_POST['fname'])));
-    $mname = mysqli_real_escape_string($connection, check_input(ucwords($_POST['mname'])));
-    $lname = mysqli_real_escape_string($connection, check_input(ucwords($_POST['lname'])));
+    $fname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['fname'])));
+    $mname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['mname'])));
+    $lname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['lname'])));
 
         if (!empty($fname) || !empty($lname)){
 
@@ -275,7 +275,7 @@ if(isset($_POST['delete_btn_teacher'])){
         // $query5 = "INSERT INTO tbl_history (user_role, id, description) VALUES ('1','$idrole','$his_data')";
         // $query_run5 = mysqli_query($connection,$query5);
 
-        $query1 = "DELETE FROM tbl_user WHERE username ='$delete_school_id' LIMIT 1";
+        $query1 = "DELETE FROM tbl_user WHERE username ='$delete_school_id' && role ='2' LIMIT 1";
         $query_run1 = mysqli_query($connection,$query1);
         
         $_SESSION['success'] = "Teacher Deleted Successfully!";
@@ -284,6 +284,135 @@ if(isset($_POST['delete_btn_teacher'])){
 
         $_SESSION['failed'] = "Error Deleting Student data!";
         header("Location: teachers.php");
+    }
+    
+}
+
+
+
+
+
+//code for adding teacher
+if (isset($_POST['addGuard'])){
+
+    $school_id = mysqli_real_escape_string($connection, check_input($_POST['school_id']));
+    $fname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['fname'])));
+    $mname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['mname'])));
+    $lname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['lname'])));
+    //$gate = mysqli_real_escape_string($connection, check_input(strtolower($_POST['gate'])));
+
+
+        if (!empty($school_id) || !empty($fname) || !empty($lname)){
+
+            $dupsql = "SELECT * FROM tbl_guard WHERE ( school_id = '$school_id' || (fname = '$fname' && mname = '$mname' && lname = '$lname'))";
+            $duprow = mysqli_query($connection, $dupsql);
+
+
+            if (mysqli_num_rows($duprow) > 0){
+                $_SESSION['failed'] = "Guard Already Exist!";
+                header('Location: guards.php');
+
+            }else{
+
+
+                $query = "INSERT INTO tbl_guard (school_id, fname,mname,lname,role,gate) 
+                            VALUES 
+                        ('$school_id','$fname','$mname','$lname','4','1')";
+                $query_run = mysqli_query($connection, $query);
+
+
+                if ($query_run){
+
+                    // $his_data = "Admin Added New Student(School ID: " . $school_id . ") Successfully!";
+                    // $query5 = "INSERT INTO tbl_history (user_role, id, description) VALUES ('1','$idrole','$his_data')";
+                    // $query_run5 = mysqli_query($connection,$query5);
+
+                    $lname1 = md5($lname);
+                    $query1 = "INSERT INTO tbl_user (username, password, role, gate) VALUES ('$school_id','$lname1','4', '1')";
+                    $query_run1 = mysqli_query($connection,$query1);
+
+                    $_SESSION['success'] = "Guard Added Successfully!";
+                    header('Location: guards.php');
+                }else{
+                    // $his_data = "Admin Encountered Error During Added New Student (School ID: " . $school_id . ")!";
+                    // $query5 = "INSERT INTO tbl_history (user_role, id, description) VALUES ('1','$idrole','$his_data')";
+                    // $query_run5 = mysqli_query($connection,$query5);
+
+                    $_SESSION['failed'] = "Error Adding Guard!";
+                    header('Location: guards.php');
+                }
+            }
+        
+    }
+
+}
+
+
+
+//code for updating guard data
+if (isset($_POST['EditGuard'])){
+
+    $id = mysqli_real_escape_string($connection, check_input($_POST['guard_id']));
+    //$guard_id = mysqli_real_escape_string($connection, check_input($_POST['editInput_guard_school_id']));
+    $fname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['fname'])));
+    $mname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['mname'])));
+    $lname = mysqli_real_escape_string($connection, check_input(strtolower($_POST['lname'])));
+
+        if (!empty($fname) || !empty($lname)){
+
+                $query = "UPDATE tbl_guard SET fname='$fname',mname='$mname',lname='$lname' WHERE id='$id' LIMIT 1";
+
+                $query_run = mysqli_query($connection, $query);
+
+                if ($query_run){
+
+                    // $his_data = "Admin Added New Student(School ID: " . $school_id . ") Successfully!";
+                    // $query5 = "INSERT INTO tbl_history (user_role, id, description) VALUES ('1','$idrole','$his_data')";
+                    // $query_run5 = mysqli_query($connection,$query5);
+
+                    $_SESSION['success'] = "Guard Data Update Successfully!";
+                    header('Location: guards.php');
+                }else{
+                    // $his_data = "Admin Encountered Error During Added New Student (School ID: " . $school_id . ")!";
+                    // $query5 = "INSERT INTO tbl_history (user_role, id, description) VALUES ('1','$idrole','$his_data')";
+                    // $query_run5 = mysqli_query($connection,$query5);
+
+                    $_SESSION['failed'] = "Error Updating Guard Data!";
+                    header('Location: guards.php');
+                }
+        
+        }
+
+}
+
+
+
+//code for deleting guard data
+if(isset($_POST['delete_btn_guard'])){
+
+    $delete_id = $_POST['delete_guard_id'];
+    $delete_school_id = $_POST['delete_guard_school_id'];
+
+
+    $query = "DELETE FROM tbl_guard WHERE id ='$delete_id' LIMIT 1";
+    $query_run = mysqli_query($connection,$query);
+
+        
+    if ($query_run) {
+
+        // $his_data = "Admin Deleted Student Data (School ID: " . $school_id . ") Successfully!";
+        // $query5 = "INSERT INTO tbl_history (user_role, id, description) VALUES ('1','$idrole','$his_data')";
+        // $query_run5 = mysqli_query($connection,$query5);
+
+        $query1 = "DELETE FROM tbl_user WHERE username ='$delete_school_id' && role ='4' LIMIT 1";
+        $query_run1 = mysqli_query($connection,$query1);
+        
+        $_SESSION['success'] = "Guard Deleted Successfully!";
+        header("Location: guards.php");
+    } else {
+
+        $_SESSION['failed'] = "Error Deleting Guard data!";
+        header("Location: guards.php");
     }
     
 }

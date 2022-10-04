@@ -89,6 +89,17 @@ if(isset($_POST['btn_login'])){
                             $_SESSION['gate'];
                             header("Location:student");
                             exit;
+                        }elseif ($_SESSION["role"] == 4){
+                            // $his_data = "User Login Successfully!";
+                            // $query1 = "INSERT INTO tbl_history (user_role, id, description) VALUES ('3','$idrole','$his_data')";
+                            // $query_run1 = mysqli_query($connection,$query1);
+
+                            $_SESSION['username'] = $username_login;
+                            $_SESSION['id'];
+                            $_SESSION['role'];
+                            $_SESSION['gate'];
+                            header("Location:guard");
+                            exit;
                         }
 
                     }else{

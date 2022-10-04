@@ -69,15 +69,15 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">First Name</label>
-                        <input type="text" class="form-control" id="input_fname" name="fname" placeholder="First name">
+                        <input type="text" class="form-control" id="input_fname" name="fname" style="text-transform: capitalize;" placeholder="First name">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Middle Name</label>
-                        <input type="text" class="form-control" id="input_mname" name="mname" placeholder="Middle name">
+                        <input type="text" class="form-control" id="input_mname" name="mname" style="text-transform: capitalize;" placeholder="Middle name">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Last Name</label>
-                        <input type="text" class="form-control" id="input_lname" name="lname" placeholder="Last name">
+                        <input type="text" class="form-control" id="input_lname" name="lname" style="text-transform: capitalize;" placeholder="Last name">
                     </div>
                
                     <div class="form-group">
@@ -128,15 +128,15 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">First Name</label>
-                        <input type="text" class="form-control" id="editInput_fname" name="fname" placeholder="First name">
+                        <input type="text" class="form-control" id="editInput_fname" name="fname" style="text-transform: capitalize;" placeholder="First name">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Middle Name</label>
-                        <input type="text" class="form-control" id="editInput_mname" name="mname" placeholder="Middle name">
+                        <input type="text" class="form-control" id="editInput_mname" name="mname" style="text-transform: capitalize;" placeholder="Middle name">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Last Name</label>
-                        <input type="text" class="form-control" id="editInput_lname" name="lname" placeholder="Last name">
+                        <input type="text" class="form-control" id="editInput_lname" name="lname" style="text-transform: capitalize;" placeholder="Last name">
                     </div>
                
                     <div class="form-group">
@@ -214,15 +214,15 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">First Name</label>
-                            <input type="text" class="form-control" id="input_fname1" name="fname" placeholder="First name">
+                            <input type="text" class="form-control" id="input_fname1" name="fname" style="text-transform: capitalize;" placeholder="First name">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Middle Name</label>
-                            <input type="text" class="form-control" id="input_mname1" name="mname" placeholder="Middle name">
+                            <input type="text" class="form-control" id="input_mname1" name="mname" style="text-transform: capitalize;" placeholder="Middle name">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Last Name</label>
-                            <input type="text" class="form-control" id="input_lname1" name="lname" placeholder="Last name">
+                            <input type="text" class="form-control" id="input_lname1" name="lname" style="text-transform: capitalize;" placeholder="Last name">
                         </div>
                     
                         <div class="modal-footer">
@@ -257,15 +257,15 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">First Name</label>
-                            <input type="text" class="form-control" id="editInput_teacher_fname" name="fname" placeholder="First name">
+                            <input type="text" class="form-control" id="editInput_teacher_fname" name="fname" style="text-transform: capitalize;" placeholder="First name">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Middle Name</label>
-                            <input type="text" class="form-control" id="editInput_teacher_mname" name="mname" placeholder="Middle name">
+                            <input type="text" class="form-control" id="editInput_teacher_mname" name="mname" style="text-transform: capitalize;" placeholder="Middle name">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Last Name</label>
-                            <input type="text" class="form-control" id="editInput_teacher_lname" name="lname" placeholder="Last name">
+                            <input type="text" class="form-control" id="editInput_teacher_lname" name="lname" style="text-transform: capitalize;" placeholder="Last name">
                         </div>
                 
                         
@@ -298,6 +298,141 @@
                         <input  type="hidden" name="delete_teacher_id" id="deleteInput_teacher_id">
                         <input  type="hidden" name="delete_teacher_school_id" id="deleteInput_school_teacher_id">
                         <button type="submit" name="delete_btn_teacher" class="btn btn-danger">Delete</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- modal for adding guard -->
+     <!-- Modal -->
+     <div class="modal fade" id="exampleModal_0_0" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Guard</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <form action="process.php" method="POST">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">School ID</label>
+                            <input type="text" class="form-control" id="input_school2" name="school_id" style="text-transform: capitalize;" placeholder="School ID">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">First Name</label>
+                            <input type="text" class="form-control" id="input_fname2" name="fname" style="text-transform: capitalize;" placeholder="First name">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Middle Name</label>
+                            <input type="text" class="form-control" id="input_mname2" name="mname" style="text-transform: capitalize;" placeholder="Middle name">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Last Name</label>
+                            <input type="text" class="form-control" id="input_lname2" name="lname" style="text-transform: capitalize;" placeholder="Last name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Gate</label>
+                            <select class="form-control" id="editInput_select2" name="gate" disabled>
+                                <option selected>-- select -- </option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                            <span style="color: red; font-size:9.5px"> * Note: (Purpose of gate option is entrance & exit.) But we use entrance scanner for in & out right now. </span>
+                        </div>
+                    
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" onclick="clearText2()">Clear</button>
+                            <button type="submit" class="btn btn-primary" name="addGuard">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- modal for updating guard  data -->
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal_1_0" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Update Guard</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <form action="process.php" method="POST">
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">School ID</label>
+                            <input type="text" class="form-control" id="editInput_guard_school_id" name="editInput_guard_school_id" style="text-transform: capitalize;" placeholder="School ID" disabled>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">First Name</label>
+                            <input type="text" class="form-control" id="editInput_guard_fname" name="fname" style="text-transform: capitalize;" placeholder="First name" >
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Middle Name</label>
+                            <input type="text" class="form-control" id="editInput_guard_mname" name="mname" style="text-transform: capitalize;" placeholder="Middle name">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Last Name</label>
+                            <input type="text" class="form-control" id="editInput_guard_lname" name="lname" style="text-transform: capitalize;" placeholder="Last name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Gate</label>
+                            <select class="form-control" id="editInput_select3" name="gate" disabled>
+                                <option>-- select -- </option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                
+                        
+                        <div class="modal-footer">
+                            <input type="hidden" name="guard_id" id="editInput_guard_id">
+                            <button type="submit" class="btn btn-primary" name="EditGuard">Edit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- modal for deleting guard data -->
+    <div class="modal fade" id="exampleModal_2_0" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Data</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Please confirm to Delete?</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <form action ="process.php" method="post"> 
+                        <input  type="hidden" name="delete_guard_id" id="deleteInput_guard_id">
+                        <input  type="hidden" name="delete_guard_school_id" id="deleteInput_school_guard_id">
+                        <button type="submit" name="delete_btn_guard" class="btn btn-danger">Delete</button>
 
                     </form>
                 </div>
@@ -346,6 +481,15 @@
             document.getElementById("input_fname1").value = '';
             document.getElementById("input_mname1").value = '';
             document.getElementById("input_lname1").value = '';
+        }
+
+        //clear all text fields of adding guard
+        function clearText2(){
+            document.getElementById("editInput_guard_school_id").value = '';
+            document.getElementById("input_fname2").value = '';
+            document.getElementById("input_mname2").value = '';
+            document.getElementById("input_lname2").value = '';
+            //document.getElementById("editInput_select2").value = '';
         }
 
 
@@ -439,6 +583,45 @@
 
 
             });
+
+
+
+            //get user id for specific update using jquery and by calling input or button id
+            //update tguard
+            $(document).on('click', '#edit_guard', function(){
+                                
+                var id = $(this).data('id1');
+                var school_id = $(this).data('id2');
+                var fname = $(this).data('id3');
+                var mname = $(this).data('id4');
+                var lname = $(this).data('id5');
+                //var gate = $(this).data('id8');
+
+
+                document.getElementById("editInput_guard_id").value = id;
+                document.getElementById("editInput_guard_school_id").value = school_id;
+                document.getElementById("editInput_guard_fname").value = fname;
+                document.getElementById("editInput_guard_mname").value = mname;
+                document.getElementById("editInput_guard_lname").value = lname;
+                //document.getElementById("editInput_select3").value = gate
+                
+            });
+
+
+
+            //get user id for specific update using jquery and by calling input or button id
+        //delete student
+        $(document).on('click', '#delete_guard', function(){
+                            
+            var delete_id = $(this).data('id1');
+            var delete_school_id = $(this).data('id2');
+
+
+            document.getElementById("deleteInput_guard_id").value = delete_id;
+            document.getElementById("deleteInput_school_guard_id").value = delete_school_id;
+
+
+        });
 
 
        
