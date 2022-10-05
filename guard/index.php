@@ -36,6 +36,22 @@
 
         <div class="card-body">
 
+            <?php
+                if (isset($_SESSION['success']) && $_SESSION['success'] !='')
+                {
+                echo '<div class="p-3 mb-2 bg-success text-white" id="message"> '.$_SESSION['success'].'</div>';
+                //echo '<audio autoplay> <source src="success.mp3" type="audio/mpeg"> </audio>';
+                unset($_SESSION['success']);
+                }
+
+                if (isset($_SESSION['failed']) && $_SESSION['failed'] !='')
+                {
+                echo '<div class="p-3 mb-2 bg-danger text-white" id="message"> '.$_SESSION['failed'].'</div>';
+                //echo '<audio autoplay> <source src="fail.mp3" type="audio/mpeg"> </audio>';
+                unset($_SESSION['failed']);
+                }
+            ?>
+
             <video id="preview" style="width: 100%;height: 300px;"> </video>
 
             <form role="form" action="process.php" method="POST">
