@@ -34,13 +34,13 @@
                     $view_student_lname = mysqli_real_escape_string($connection, check_input($_POST['view_student_lname']));
                     $view_student_contact_no = mysqli_real_escape_string($connection, check_input($_POST['view_student_contact_no']));
 
-                    $student_complete_name = $view_student_fname . " " . $view_student_mname . " " . $view_student_lname;
+                    //$student_complete_name = $view_student_fname . " " . $view_student_mname . " " . $view_student_lname;
 
-                    echo $student_complete_name;
+                    //echo $student_complete_name;
 
                     ?>
 
-                    <input type="hidden" id="student_complete_name" value="<?php echo htmlspecialchars($student_complete_name); ?>">
+                    <input type="hidden" id="student_complete_name" value="<?php echo htmlspecialchars($view_student_school_id); ?>">
 
                     
 
