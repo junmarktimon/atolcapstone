@@ -136,77 +136,107 @@
                                 <h2 style="text-align:center"> Subject Attendance</h2>
                                 <br><br>
 
-                                <div class="table-responsive">
+                                <?php 
+                                
+                                        $query1 = "SELECT * FROM tbl_attendance GROUP BY school_year DESC";
+                                        $query_run1 = mysqli_query($connection,$query1);
 
-                                    <table class="table table-bordered" id="dataTable2" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Name</th>
-                                                <th>Time In</th>
-                                                <th>Time Out</th>
-                                                <th>Log Date</th>
-                                                <th>Status</th>
-                                            </tr>
-                                        </thead>
+                                        if (mysqli_num_rows($query_run1) > 0){
 
-                                        <tbody>
+                                            while($row1 = mysqli_fetch_assoc($query_run1)){
 
-                                            <?php
-                                                $query = "SELECT * FROM tbl_main_attendance";
-                                                $query_run = mysqli_query($connection,$query);
-
-                                            ?>
+                                                $school_year_name = $row1['school_year'];
 
 
-                                            <?php
+                                ?>
+                                                        <div class="panel-body">
+                                                            <p><button type="button" class="btn btn-lg btn-default" id="parser" name="parser" onclick="hideShowTable(<?php echo $school_year_name; ?>);"><?php echo $school_year_name; ?></button></p>
+                                                        </div>
+                                                        <div class="table-responsive">
 
-                                                if (mysqli_num_rows($query_run) > 0){
+                                                            <table class="table table-bordered" id="dataTable2" width="100%" cellspacing="0">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>ID</th>
+                                                                        <th>Student Name</th>
+                                                                        <th>Teacher Name</th>
+                                                                        <th>Subject</th>
+                                                                        <th>Time In</th>
+                                                                        <th>Time Out</th>
+                                                                        <th>Log Date</th>
+                                                                    </tr>
+                                                                </thead>
 
-                                                    while($row = mysqli_fetch_assoc($query_run)){
+                                                                <tbody>
 
-                                            ?>
+                                                                    <?php
+                                                                        $query = "SELECT * FROM tbl_attendance";
+                                                                        $query_run = mysqli_query($connection,$query);
+
+                                                                    ?>
 
 
-                                                        <tr style="text-transform: capitalize;">
-                                                            <td>
-                                                                <?php echo htmlspecialchars($row['id']); ?>
-                                                            </td>
-                                                            <td>
-                                                                <?php echo htmlspecialchars($row['student_id']); ?>
-                                                            </td>
-                                                            <td>
-                                                                <?php echo htmlspecialchars($row['time_in']); ?>
-                                                            </td>
-                                                            <td>
-                                                                <?php echo htmlspecialchars($row['time_out']); ?>
-                                                            </td>
-                                                            <td>
-                                                                <?php echo htmlspecialchars($row['log_date']); ?>
-                                                            </td>
-                                                            <td>
-                                                                <?php echo htmlspecialchars($row['status']); ?>
-                                                            </td>
+                                                                    <?php
 
-                                                        </tr>
-                                        <?php
+                                                                        if (mysqli_num_rows($query_run) > 0){
 
-                                                    }
+                                                                            while($row = mysqli_fetch_assoc($query_run)){
 
-                                                }
+                                                                    ?>
 
-                                        ?>
-                                        
-                                        </tbody>
-                                    </table>
 
-                                </div>
+                                                                                <tr style="text-transform: capitalize;">
+                                                                                    <td>
+                                                                                        <?php echo htmlspecialchars($row['id']); ?>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <?php echo htmlspecialchars($row['student_id']); ?>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <?php echo htmlspecialchars($row['teacher_id']); ?>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <?php echo htmlspecialchars($row['subject']); ?>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <?php echo htmlspecialchars($row['time_in']); ?>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <?php echo htmlspecialchars($row['time_out']); ?>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <?php echo htmlspecialchars($row['log_date']); ?>
+                                                                                    </td>
+                                                                                
+
+                                                                                </tr>
+                                                                <?php
+
+                                                                            }
+
+                                                                        }
+
+                                                                ?>
+                                                                
+                                                                </tbody>
+                                                            </table>
+
+                                                        </div>
+
+                                                        <?php
+
+                                            }
+
+                                        }
+
+                                                        ?>
 
                             </div>
                         </div>
 
                     <?php
                 }
+
                     ?>
             
         </div>
