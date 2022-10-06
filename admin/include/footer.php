@@ -464,6 +464,11 @@
             $('#dataTable1').DataTable();
         });
 
+        //data tables
+        $(document).ready(function () {
+            $('#dataTable2').DataTable();
+        });
+
 
         //clear all text fields of adding student
         function clearText(){

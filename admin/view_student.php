@@ -46,15 +46,170 @@
 
                     <?php
 
-                }
+                //}
 
                     ?>
 
-<div id="qrcode"> </div>
+                        <div id="qrcode"> </div>
+
+                        <br><br>
+
+                        <div class="row">
+                            <div class="col">
+
+                                <h2 style="text-align:center"> Campus Attendance</h2>
+                                <br><br>
+
+                                <div class="table-responsive">
+
+                                    <table class="table table-bordered" id="dataTable1" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Name</th>
+                                                <th>Time In</th>
+                                                <th>Time Out</th>
+                                                <th>Log Date</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+
+                                            <?php
+                                                $query = "SELECT * FROM tbl_main_attendance WHERE student_id = '$view_student_school_id'";
+                                                $query_run = mysqli_query($connection,$query);
+
+                                            ?>
+
+
+                                            <?php
+
+                                                if (mysqli_num_rows($query_run) > 0){
+
+                                                    while($row = mysqli_fetch_assoc($query_run)){
+
+                                            ?>
+
+
+                                                        <tr style="text-transform: capitalize;">
+                                                            <td>
+                                                                <?php echo htmlspecialchars($row['id']); ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo htmlspecialchars($row['student_id']); ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo htmlspecialchars($row['time_in']); ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo htmlspecialchars($row['time_out']); ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo htmlspecialchars($row['log_date']); ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo htmlspecialchars($row['status']); ?>
+                                                            </td>
+
+                                                        </tr>
+                                        <?php
+
+                                                    }
+
+                                                }
+
+                                        ?>
+                                        
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                        
+                            </div>
 
 
 
-            </div>
+
+                            <div class="col">
+
+                                <h2 style="text-align:center"> Subject Attendance</h2>
+                                <br><br>
+
+                                <div class="table-responsive">
+
+                                    <table class="table table-bordered" id="dataTable2" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Name</th>
+                                                <th>Time In</th>
+                                                <th>Time Out</th>
+                                                <th>Log Date</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+
+                                            <?php
+                                                $query = "SELECT * FROM tbl_main_attendance";
+                                                $query_run = mysqli_query($connection,$query);
+
+                                            ?>
+
+
+                                            <?php
+
+                                                if (mysqli_num_rows($query_run) > 0){
+
+                                                    while($row = mysqli_fetch_assoc($query_run)){
+
+                                            ?>
+
+
+                                                        <tr style="text-transform: capitalize;">
+                                                            <td>
+                                                                <?php echo htmlspecialchars($row['id']); ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo htmlspecialchars($row['student_id']); ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo htmlspecialchars($row['time_in']); ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo htmlspecialchars($row['time_out']); ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo htmlspecialchars($row['log_date']); ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo htmlspecialchars($row['status']); ?>
+                                                            </td>
+
+                                                        </tr>
+                                        <?php
+
+                                                    }
+
+                                                }
+
+                                        ?>
+                                        
+                                        </tbody>
+                                    </table>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    <?php
+                }
+                    ?>
+            
+        </div>
 
 
 
